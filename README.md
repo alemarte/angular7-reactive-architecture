@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ### Basic Concepts
 
-This project summarize concepts explained in these articles (thanks to the authors).
+This project summarizes concepts explained in these articles (thanks to the authors).
 
 
 - [Understanding Angular modules (NgModule) and their scopes](https://medium.com/@cyrilletuzi/understanding-angular-modules-ngmodule-and-their-scopes-81e4ed6f7407) by Cyrille Tuzi 
