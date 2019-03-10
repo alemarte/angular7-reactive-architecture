@@ -1,0 +1,33 @@
+<!-- -------------- -->
+<!-- Attempts Recap -->
+<!-- -------------- -->
+
+<div class="alert alert-primary text-center" role="alert">
+  <p class="mb-0" *ngIf="game.attempts === 0; else attemptsRecap">
+    Make your first attempt!
+  </p>
+  <ng-template #attemptsRecap>
+    <p>
+      Performed attempts: {{ game.attempts }}
+    </p>
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Value</th>
+        <th scope="col">Correct Right Position</th>
+        <th scope="col">Correct Wrong Position</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let attempt of game.attemptsDetail; let i = index">
+        <td> #{{ i }}</td>
+        <td> {{ attempt.value }}</td>
+        <td> {{ attempt.correctRightPosition }}</td>
+        <td> {{ attempt.correctWrongPosition }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </ng-template>
+</div>
+

@@ -1,0 +1,14 @@
+
+  <div *ngIf="playing; else resume" class="col-xs-12">
+    <h3>Resume your game!</h3>
+    <button  class="btn btn-warning" (click)="play.emit()">Resume</button>
+  </div>
+
+  <ng-template #resume>
+    <div class="col-xs-12">
+      <h3>Select a game or start a new one!</h3>
+      <button  class="btn btn-success" (click)="play.emit()">Play</button>
+    </div>
+  </ng-template>
+
+

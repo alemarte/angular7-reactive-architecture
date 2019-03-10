@@ -1,0 +1,13 @@
+<app-header [authState$]="authState$" (logout)="onLogout()"></app-header>
+
+<div *ngIf="currentGame$ | async; let currentGame">
+  <app-counter *ngIf="currentGame.playing" [timestamp]="currentGame.game.startedAt"></app-counter>
+</div>
+
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-md-12">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

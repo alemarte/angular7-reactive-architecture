@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand navbar-light bg-light">
+  <a class="navbar-brand" routerLink="/">Master Mind</a>
+
+  <div class="collapse navbar-collapse">
+    <ul *ngIf="authState$ | async; let auth" class="navbar-nav mr-auto">
+      <li *ngIf="auth.authenticated" class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/games">Games</a>
+      </li>
+    </ul>
+
+    <ul *ngIf="authState$ | async; let auth" class="navbar-nav float-right">
+      <ng-template [ngIf]="!auth.authenticated">
+        <li class="nav-item"><a class="nav-link" routerLink="/signup">Register</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/signin">Login</a></li>
+      </ng-template>
+
+      <ng-template [ngIf]="auth.authenticated">
+        <li class="nav-item nav-link disabled">
+          <i class="fa fa-user"></i> {{ auth.username }}
+        </li>
+        <li class="nav-item">
+          <a  class="nav-link" style="cursor: pointer;" (click)="logout.emit()">Logout</a>
+        </li>
+      </ng-template>
+
+    </ul>
+
+  </div>
+
+</nav>
+
+

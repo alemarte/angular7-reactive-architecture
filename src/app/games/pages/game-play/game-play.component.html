@@ -1,0 +1,34 @@
+<h3>Play the game</h3>
+
+<div *ngIf="currentGame$ | async; let currentGame; else loading">
+
+  <div *ngIf="currentGame.playing">
+    <app-attempts [game]="currentGame.game"></app-attempts>
+
+    <!-- --------- -->
+    <!-- Try again -->
+    <!-- --------- -->
+
+    <form [formGroup]="form" (ngSubmit)="submit(currentGame.game)">
+      <div class="form-group">
+        <label for="attempt">Try</label>
+        <input
+          formControlName="attempt"
+          type="text"
+          id="attempt"
+          name="attempt"
+          maxLength="3"
+          class="form-control">
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Check</button>
+    </form>
+  </div>
+
+</div>
+
+<ng-template #loading>
+  <div class="text-center mt-2">
+    <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+    <span class="sr-only">Loading...</span>
+  </div>
+</ng-template>

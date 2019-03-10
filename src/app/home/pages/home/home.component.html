@@ -1,0 +1,28 @@
+<div *ngIf="topUsers$ | async; let users">
+
+  <h3 class="mb-4">Master Mind! Top Users Board</h3>
+
+  <ul class="list-group">
+
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">User</th>
+        <th scope="col">Total Score</th>
+        <th scope="col">Total Games</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of users; let i = index" >
+        <th scope="row">#{{ i + 1 }}</th>
+        <td><i class="fa fa-user"></i> {{ user.username }}</td>
+        <td>{{ user.totalScore }}</td>
+        <td>{{ user.totalGames }}</td>
+      </tr>
+      </tbody>
+    </table>
+
+  </ul>
+
+</div>

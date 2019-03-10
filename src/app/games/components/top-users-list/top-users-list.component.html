@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="container">
+    <h3> Top Users</h3>
+    <div *ngIf="topUsers$ | async; let users; else loading">
+      <ul class="list-group">
+        <li *ngFor="let user of users; let i = index" class="list-group-item">
+          <strong class="pr-1">#{{ i + 1 }}</strong>
+          <span class="badge badge-pill badge-success">{{ user.totalScore }}</span>
+          <i class="fa fa-user pl-1"></i> {{ user.username }}
+        </li>
+      </ul>
+    </div>
+
+    <ng-template #loading>Loading Data...</ng-template>
+  </div>
+</div>
+

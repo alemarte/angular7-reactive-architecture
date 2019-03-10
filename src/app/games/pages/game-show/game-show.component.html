@@ -1,0 +1,24 @@
+<h3>Game Recap</h3>
+
+<div *ngIf="game$ | async; let game; else loading">
+
+  <!-- ------- -->
+  <!-- Success -->
+  <!-- ------- -->
+
+  <div *ngIf="game.terminated" class="alert alert-success text-center" role="alert">
+    <p>Congratulation !!!</p>
+    <p>You scored {{ game.score }}</p>
+  </div>
+
+  <app-attempts [game]="game"></app-attempts>
+
+  <app-play [playing]="playing$ | async" (play)="play()"></app-play>
+
+</div>
+<ng-template #loading>
+  <div class="text-center mt-2">
+    <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+    <span class="sr-only">Loading...</span>
+  </div>
+</ng-template>

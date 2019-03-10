@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="container">
+
+    <div *ngIf="games$ | async; let games; else loading">
+      <h3> Your Scores </h3>
+      <a *ngFor="let game of games.games"
+         style="cursor: pointer;"
+         [routerLink]="['show/' + game.id]"
+         routerLinkActive="active"
+         class="list-group-item clearfix">
+        <div class="pull-left">
+          <i class="fa fa-star" aria-hidden="true"></i> {{ game.score }}<br>
+          <em><small>
+            <i class="fa fa-calendar-o" aria-hidden="true"></i> {{ game.startedAt | date }}
+            <i class="fa fa-question-circle-o" aria-hidden="true"></i> {{ game.code }}
+          </small></em>
+        </div>
+      </a>
+    </div>
+    <ng-template #loading>Loading Data...</ng-template>
+  </div>
+</div>
+
